@@ -9,6 +9,10 @@ import './App.css';
 
 export default class App extends Component {
 
+  state = {
+    selectedItem: null
+  };
+
 	render () {
 		return (
 			<div className='container'>
@@ -16,15 +20,20 @@ export default class App extends Component {
 				<RandomPlanet />
       	<div className="row mb2">
         	<div className="col-md-6">
-          	<ItemList />
+          	<ItemList onItemSelected={this.onItemSelected}/>
         	</div>
         	<div className="col-md-6">
-          	<PersonDetails />
+          	<PersonDetails person={this.state.selectedItem} />
         	</div>
       	</div>
 			</div>
 			);
 	}
 
+  onItemSelected = (id) => {
+    this.setState ({
+      selectedItem: id
+    });
+  }
 	
 }
