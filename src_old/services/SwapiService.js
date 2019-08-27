@@ -3,6 +3,7 @@
 export default class SwapiService {
 
 	_baseUrl = 'https://swapi.co/api';
+	_baseImg = 'https://starwars-visualguide.com/assets/img';
 
 	async getResource (url) {
 		const res = await fetch (this._baseUrl + url);
@@ -19,7 +20,7 @@ export default class SwapiService {
 		return res.results.map(this._transformPerson);
 	}
 
-	getAllPlanets = async () => {
+	getAllPlanets  = async () => {
 		const res = await this.getResource ('/planets/');
 		return res.results.map(this._transformPlanet);
 	}
@@ -29,19 +30,31 @@ export default class SwapiService {
 		return res.results.map(this._transformStarship);
 	}
 
-	async getPerson(id) {
+	getPerson = async (id) => {
 		const person = await this.getResource (`/people/${id}/`);
 		return this._transformPerson(person);
 	}
 
-	async getPlanet(id) {
+	getPlanet = async (id) => {
 		const planet = await this.getResource (`/planets/${id}/`);
 		return this._transformPlanet(planet);
 	}
 
-	async getStarship(id) {
-		const starship = await this.getResource (`/starship/${id}/`);
-		return this._transformPlanet(starship);
+	getStarship = async (id) => {
+		const starship = await this.getResource (`/starships/${id}/`);
+		return this._transformStarship(starship);
+	}
+
+	getPersonImg = (id) => {
+		return `${this._baseImg}/characters/${id}.jpg`;
+	}
+
+	getPlanetImg = (id) => {
+		return `${this._baseImg}/planets/${id}.jpg`;
+	}
+
+	getStarshipImg = (id) => {
+		return `${this._baseImg}/starships/${id}.jpg`;
 	}
 
 	_extractId (item) {
@@ -60,15 +73,16 @@ export default class SwapiService {
 	}
 
 	_transformStarship = (starship) => {
+		console.log(starship);
 		return {
 			id: this._extractId(starship),
 			name: starship.name,
 			manufacturer: starship.manufacturer,
-			costInCredits: starship.costInCredits,
+			costInCredits: starship.cost_in_credits,
 			length: starship.length,
 			crew: starship.crew,
 			passengers: starship.passengers,
-			cargoCapacity: starship.cargoCapacity
+			cargoCapacity: starship.cargo_capacity
 		};
 	}
 
@@ -77,8 +91,8 @@ export default class SwapiService {
 			id: this._extractId(person),
 			name: person.name,
 			gender: person.gender,
-			birthYear: person.birthYear,
-			eyeColor: person.eyeColor
+			birthYear: person.birth_year,
+			eyeColor: person.eye_color
 		};
 	}
 

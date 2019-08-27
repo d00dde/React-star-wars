@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-
 import Spinner from '../Spinner';
+import ErrorMsg from '../ErrorMsg';
+
 import './RandomPlanet.css';
 import SwapiService from '../../services/SwapiService';
 
@@ -28,14 +29,13 @@ export default class RandomPlanet extends Component {
 				loading: false
 			});
 		}).catch((err) => {
-			console.log(err.message);
 			this.setState ({error: true});
 		});
 	}
 
 	render () {
 			
-		const view = this.state.error ? this.errorMsg () :
+		const view = this.state.error ? <ErrorMsg /> :
 								this.state.loading ? <Spinner /> : this.content();
 		
 		return(
@@ -73,11 +73,5 @@ export default class RandomPlanet extends Component {
 				</div>
 			</React.Fragment>
 			);
-	}
-
-	errorMsg = () => {
-		return (
-		<div>Что-то пошло не так.</div>
-		);
 	}
 }

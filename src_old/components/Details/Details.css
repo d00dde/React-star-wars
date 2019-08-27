@@ -1,14 +1,19 @@
 .person-details {
   display: flex;
-  margin-top: 1rem;
   flex-direction: row;
-  padding: 1rem;
+	padding-top: 1rem;
 }
 
+.person-details .img-cont {
+	width: 30%;
+	height: 200px;
+}
+
+
 .person-details .person-image {
-  width: 30%;
-  height: 30%;
-  border-radius: 10px;
+  object-fit: scale-down;
+  height: 100%;
+  width: 100%;
 }
 
 .person-details .list-group-item {
@@ -17,4 +22,9 @@
 
 .person-details .list-group-item .term{
   margin-right: .5rem;
+}
+
+.person-details .card-body {
+	padding-bottom: 0;
+	height: 50%;
 }

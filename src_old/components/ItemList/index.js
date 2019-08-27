@@ -30,7 +30,7 @@ export default class ItemList extends Component {
                     this.createElements(this.state.itemList);
     
     return(
-			<ul className="item-list list-group">
+			<ul className={"item-list list-group " + this.props.clazz}>
         {content}
       </ul>
 		);
