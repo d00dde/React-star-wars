@@ -16,5 +16,7 @@ Context
 Композиция, функции возвращающие функции
 Два вида композиции функций
 defaultProps
-propTypes
+propTypes, библиотека prop-types, airbnb/prop-types
+Router
+
 
