@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Spinner from '../spinner';
+import Spinner from '../Spinner';
 import ErrorIndicator from '../error-indicator';
 
 const withData = (View) => {
