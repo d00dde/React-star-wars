@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Spinner from '../Spinner';
+import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import { withSwapiService } from '../hoc-helpers/';
 import PropTypes from 'prop-types';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from '../Header';
+import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorBoundry from '../error-boundry';
 import SwapiService from '../../services/swapi-service';
