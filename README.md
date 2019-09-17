@@ -23,4 +23,4 @@
 + передача контекста в приложении;
 + default props;
 + контроль передаваемых свойств (props types);
-+ hight order components (hoc)
++ higher order components (hoc).
